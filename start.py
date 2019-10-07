@@ -10,10 +10,10 @@ plantdb = client.plantdb
 collection = plantdb.plant_collection
 
 # flask setup
-app = Flask(__name__)
+application = Flask(__name__)
 
 # root route for plant api
-@app.route("/", methods=["GET", "POST"])
+@application.route("/", methods=["GET", "POST"])
 def users():
     if request.method == 'POST':
         data = json.loads(request.data)
@@ -32,4 +32,7 @@ def users():
 
 
 if __name__ == "__main__":
-    app.run(use_reloader=True)
+    if 'ip' in hostname:
+        .run(host='0.0.0.0', port=50)
+    else:
+        app.run(use_reloader=True)
