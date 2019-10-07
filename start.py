@@ -12,8 +12,13 @@ collection = plantdb.plant_collection
 # flask setup
 application = Flask(__name__)
 
-# root route for plant api
+
 @application.route("/", methods=["GET", "POST"])
+def home():
+    return "Welcome to the plant-flask-api"
+
+# root route for plant api
+@application.route("/api", methods=["GET", "POST"])
 def users():
     if request.method == 'POST':
         data = json.loads(request.data)
