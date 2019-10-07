@@ -33,6 +33,6 @@ def users():
 
 if __name__ == "__main__":
     if 'ip' in hostname:
-        .run(host='0.0.0.0', port=50)
+        application.run(host='0.0.0.0', port=50)
     else:
-        app.run(use_reloader=True)
+        application.run(use_reloader=True)
