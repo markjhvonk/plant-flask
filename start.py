@@ -2,7 +2,7 @@ from flask import Flask, request
 from pymongo import MongoClient
 from bson.json_util import dumps
 from flask_cors import CORS
-import datetime
+import time
 import json
 
 # mongodb setup
@@ -28,7 +28,7 @@ def users():
 
         if value:
             collection.insert({
-                "timestamp": datetime.datetime.now().isoformat(),
+                "timestamp": time.asctime(time.localtime(time.time())),
                 "value": value,
             })
         else:
