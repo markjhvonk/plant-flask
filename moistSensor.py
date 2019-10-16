@@ -1,7 +1,7 @@
 from gpiozero import InputDevice
 from time import sleep
 
-sensor = InputDevice(17, pull_up=true)
+sensor = InputDevice(17, pull_up=True)
 
 while True:
     print('is_active?')
