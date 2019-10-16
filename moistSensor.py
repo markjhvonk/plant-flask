@@ -1,20 +1,18 @@
 import time
 from gpiozero import InputDevice
-# import RPi.GPIO as GPIO
+import RPi.GPIO as GPIO
 from time import sleep
 
-# GPIO.setmode(GPIO.BOARD)
-# GPIO.setup(7, GPIO.IN)
-# # loop through 50 times, on/off for 1 second
-# while True:
-#     GPIO.output(7, True)
-#     time.sleep(1)
-# GPIO.cleanup()
 
+GPIO.setmode(GPIO.BCM)
+channel = 17
+GPIO.setup(channel, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 sensor = InputDevice(17)
 
+
 while True:
-    print('is_active?')
-    print(sensor.is_active)
-    print(sensor.value)
+    print(GPIO.input(channel))
+    # print('is_active?')
+    # print(sensor.is_active)
+    # print(sensor.value)
     sleep(1)
