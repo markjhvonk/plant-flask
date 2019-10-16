@@ -1,7 +1,17 @@
+import time
 from gpiozero import InputDevice
+# import RPi.GPIO as GPIO
 from time import sleep
 
-sensor = InputDevice(17, pull_up=True)
+# GPIO.setmode(GPIO.BOARD)
+# GPIO.setup(7, GPIO.IN)
+# # loop through 50 times, on/off for 1 second
+# while True:
+#     GPIO.output(7, True)
+#     time.sleep(1)
+# GPIO.cleanup()
+
+sensor = InputDevice(17)
 
 while True:
     print('is_active?')
