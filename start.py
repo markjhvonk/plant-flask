@@ -21,7 +21,7 @@ def home():
 
 # root route for plant api
 @app.route("/api", methods=["GET", "POST"])
-def users():
+def api():
     if request.method == 'POST':
         data = json.loads(request.data)
         value = data['value']
@@ -36,6 +36,11 @@ def users():
         return str(value), 201
     else:
         return dumps(collection.find({}))
+
+
+@app.route("/latest", methods=["GET"])
+def latest():
+    return dumps(collection.find().sort([('$natural', -1)]).limit(24))
 
 
 if __name__ == "__main__":
